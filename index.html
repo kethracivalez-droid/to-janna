@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Monthsary 💕</title>
+
+  <!-- Cute fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Sacramento&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #ffd6e8, #fff0f5);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Floating background hearts + sparkles */
+    .floating {
+      position: absolute;
+      font-size: 1.8rem;
+      opacity: 0.2;
+      animation: float 10s linear infinite;
+    }
+    .floating:nth-child(1) { top: 90%; left: 10%; animation-duration: 12s; }
+    .floating:nth-child(2) { top: 85%; left: 80%; animation-duration: 15s; }
+    .floating:nth-child(3) { top: 95%; left: 40%; animation-duration: 18s; }
+    .floating:nth-child(4) { top: 100%; left: 60%; animation-duration: 20s; }
+    .floating:nth-child(5) { top: 92%; left: 25%; animation-duration: 22s; }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.2; }
+      100% { transform: translateY(-120vh); opacity: 0.1; }
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 35px;
+      border-radius: 25px;
+      max-width: 850px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(255, 182, 193, 0.4);
+      border: 4px solid transparent;
+      background-clip: padding-box, border-box;
+      background-origin: border-box;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      color: #d63384;
+      margin-bottom: 15px;
+      font-weight: 600;
+      font-family: 'Sacramento', cursive;
+      text-shadow: 1px 1px 4px rgba(255, 105, 180, 0.3);
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #4d3d3d;
+      margin-bottom: 25px;
+    }
+
+    /* Envelope styles */
+    .envelope-wrapper {
+      position: relative;
+      width: 260px;
+      height: 160px;
+      margin: 0 auto 30px;
+      perspective: 1000px;
+    }
+
+    .envelope {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #ffb6c1;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 1s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      cursor: pointer;
+      border: 3px solid #ff99bb;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: #ff80a8;
+      border-radius: 12px 12px 0 0;
+      transform-origin: top center;
+      transition: transform 1s ease;
+      z-index: 2;
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(180deg);
+      z-index: 0;
+    }
+
+    .message-text {
+      position: absolute;
+      bottom: 15px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1em;
+      z-index: 1;
+      pointer-events: none;
+      text-shadow: 0px 0px 6px #ff4f91;
+    }
+
+    #letter {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 1.2s ease, opacity 1.2s ease;
+      opacity: 0;
+      background: rgba(255, 240, 245, 0.98);
+      border: 2px dashed #ff80b5;
+      border-radius: 15px;
+      color: #4d3d3d;
+      text-align: left;
+      font-size: 1em;
+      white-space: pre-line;
+      position: relative;
+    }
+
+    #letter.show {
+      max-height: 1500px;
+      opacity: 1;
+      padding: 25px;
+      margin-top: 20px;
+      box-shadow: inset 0 0 15px rgba(255,192,203,0.5);
+    }
+
+    #letter::before {
+      content: "✨💖✨";
+      position: absolute;
+      top: -20px;
+      left: 10px;
+      font-size: 1.2rem;
+    }
+
+    #letter::after {
+      content: "✨💖✨";
+      position: absolute;
+      bottom: -20px;
+      right: 10px;
+      font-size: 1.2rem;
+    }
+
+    .yt-button {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #ff80b5;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-size: 1.05em;
+      box-shadow: 0px 4px 12px rgba(255,105,180,0.4);
+    }
+
+    .yt-button:hover {
+      background-color: #ff5a9e;
+      transform: scale(1.07);
+      box-shadow: 0px 6px 18px rgba(255,105,180,0.6);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8em; }
+      p { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Background Emojis -->
+  <div class="floating">💖</div>
+  <div class="floating">🌸</div>
+  <div class="floating">✨</div>
+  <div class="floating">💕</div>
+  <div class="floating">🌟</div>
+
+  <div class="container">
+    <h1> Everyday with you is a gift </h1>
+    <p>To Janna, I love you <3</p>
+
+    <!-- Envelope -->
+    <div class="envelope-wrapper" onclick="toggleLetter()">
+      <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="message-text">Read My Letter 💌</div>
+      </div>
+    </div>
+
+    <!-- Hidden Letter -->
+    <div id="letter">
+To the Best Girlfriend,
+
+Four months. It feels both short and long at the same time. Short, because every moment with you passes so quickly. Long, because in those four months, I’ve already felt a lifetime’s worth of love, comfort, and happiness with you.  
+
+You’ve become my coffee in the morning, and most of all, my bedtime story. When the world gets heavy and my mind is full of noise, it’s always you I think about before I close my eyes. Just hearing your voice or knowing that you’re there calms me and makes me feel safe enough to dream. Langga, thank you for being my rest.  
+
+Whenever I listen to “Hindi Ako Mawawala,” I can’t help but think of us. It reminds me of the love I want to give you. The kind of love that never leaves, never fades, and never gets tired. No matter what life brings, no matter what struggles we face, langga, dili gyud ko mawala.  
+
+Happy 4th Monthsary, my love. Here’s to more months, more years, more lifetimes. Here’s to us, to our forever, to our “fourever.”  
+
+I love you with all that I am, and I’ll never get tired of reminding you: hindi ako mawawala.  
+
+Love always,  
+Maldita, medyo? char.
+
+      <br><br>
+      <a class="yt-button" href="https://youtu.be/3zp0BPaqsS8?si=gUJM5E3oM2P-wTSa" target="_blank">🎵 Play Our Song 🎵</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleLetter() {
+      const envelope = document.getElementById('envelope');
+      const letter = document.getElementById('letter');
+      envelope.classList.toggle('open');
+      letter.classList.toggle('show');
+    }
+  </script>
+
+</body>
+</html>
